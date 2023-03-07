@@ -13,13 +13,13 @@ export const Main = () => {
     const navigate = useNavigate()
 
     const currencies = data.currencyData?.rates ? Object.keys(data.currencyData.rates) : []
-    const date = new Date();
+    const date = new Date(Date.now()).toLocaleString().split(',')[0];
 
     return (
         <Container>
             <Label>Главная страница</Label>
             <Dropdown curCode={data.symbols} onBaseChange={data.onBaseChange}/>
-            <LabelRows>Курсы на {date.toISOString()}</LabelRows>
+            <LabelRows>Курсы на {date}</LabelRows>
             <Rows>
                 {currencies.map((c) => {
                     return <Row fromCurr={data.currencyData.base} convertValue={data.currencyData.rates[c]} toCurr={c}

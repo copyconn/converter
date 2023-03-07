@@ -44,12 +44,10 @@ export const Converter = () => {
                         hideNotification('loading')
 
                         if (axios.isAxiosError(error)) {
-                            // 👇️ error: AxiosError<any, any>
                             showError(error.message)
-                            return error.message; // ???
                         } else {
                             console.log('unexpected error: ', error);
-                            return 'An unexpected error occurred';
+                            showError('An unexpected error occurred')
                         }
                     }
                 }
@@ -85,16 +83,9 @@ export const Converter = () => {
 }
 
 const Container = styled.div`
-  //display: flex;
-  //flex-direction: column;
-  //align-items: center;
-  //justify-content: space-between;
-  //gap: 50px;
-
   display: grid;
   grid-template-rows: repeat(12, 1fr);
   grid-template-columns: repeat(12, 1fr);
-
   border-radius: 20px;
   width: 40vw;
   height: 90vh;
@@ -114,7 +105,6 @@ const Label = styled.div`
 const InputContainer = styled.div`
   display: flex;
   gap: 20px;
-  //width: 70%;
   align-items: flex-end;
   grid-column: 2 / 10 span;
   grid-row: 4;

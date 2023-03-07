@@ -20,5 +20,4 @@ const Container = styled.div`
   line-height: 50px;
   padding-left: 10px;
   border-bottom: 1px solid #dbd7d7;
-  //border: 1px solid #dbd7d7;
 `

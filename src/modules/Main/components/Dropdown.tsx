@@ -8,7 +8,6 @@ interface IDropdownProps {
 }
 
 export const Dropdown = ({curCode, onBaseChange}: IDropdownProps) => {
-
     const curCodes = Object.keys(curCode)
 
     const data = curCodes.map((el) => {

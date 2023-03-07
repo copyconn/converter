@@ -12,7 +12,6 @@ export const Main = () => {
     const data = useContext(dataContext) as any;
     const navigate = useNavigate()
 
-
     const currencies = data.currencyData?.rates ? Object.keys(data.currencyData.rates) : []
     const date = new Date();
 
@@ -21,12 +20,12 @@ export const Main = () => {
             <Label>Главная страница</Label>
             <Dropdown curCode={data.symbols} onBaseChange={data.onBaseChange}/>
             <LabelRows>Курсы на {date.toISOString()}</LabelRows>
-             <Rows>
-            {currencies.map((c) => {
-                return <Row fromCurr={data.currencyData.base} convertValue={data.currencyData.rates[c]} toCurr={c}
-                            key={c}/>
-            })}
-             </Rows>
+            <Rows>
+                {currencies.map((c) => {
+                    return <Row fromCurr={data.currencyData.base} convertValue={data.currencyData.rates[c]} toCurr={c}
+                                key={c}/>
+                })}
+            </Rows>
             <ButtonNav>
                 <Button variant="outline" color="violet" onClick={() => navigate('/converter')}>Конвертер валют<Square/></Button>
             </ButtonNav>
@@ -38,7 +37,6 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: repeat(12, 1fr);
   grid-template-columns: repeat(12, 1fr);
-
   border-radius: 20px;
   width: 40vw;
   height: 90vh;
@@ -65,9 +63,6 @@ const Rows = styled.div`
   grid-row: 4 / 7 span;
   grid-column: 1 / 12 span;
   overflow-y: scroll;
-  //border-right: 1px solid #dbd7d7;
-  //border-left: 1px solid #dbd7d7;
-  //height: 300px;
   border: 1px solid #dbd7d7;
   margin-left: 15px;
   border-radius: 5px;
